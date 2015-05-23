@@ -4,7 +4,7 @@
 'use strict';
 var React=require('react');
 var HomeAction=require('../../actions/homeAction');
-var HomeStore=require('../../homeStore');
+var HomeStore=require('../../stores/homeStore');
 var Service=require('../../services/commonService');
 var Home=React.createClass({
     componentWillMount(){
