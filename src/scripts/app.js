@@ -3,6 +3,8 @@
  */
 'use strict';
 var React = require('react');
+var Router=require('react-router');
+var Home=require('./components/home/home.react');
 if (window.getComputedStyle) {
     var Home = require('./components/home/home.react');
 
@@ -13,12 +15,7 @@ if (window.getComputedStyle) {
         render: function () {
             return (
                 <div>
-                    <Nagigation/>
-                    <div className="container">
-                        <Menu/>
                         <RouteHandler/>
-                        <Footer/>
-                    </div>
                 </div>
             );
         }
