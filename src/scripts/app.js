@@ -5,6 +5,8 @@
 var React = require('react');
 var Router=require('react-router');
 var Home=require('./components/home/home.react');
+var Delicacy=require('./components/delicacy/index.react');
+var Articles=require('./components/articles/index.react');
 if (window.getComputedStyle) {
     var Home = require('./components/home/home.react');
 
@@ -24,6 +26,8 @@ if (window.getComputedStyle) {
     var routes = (
         <Route handler={App}>
             <DefaultRoute  handler={Home} />
+            <Route name="delicacy" path="/delicacy" handler={Delicacy}/>
+            <Route name="articles" path="/articles/:id" handler={Articles}/>
         </Route>
     );
     if (!window.applicationCache) {

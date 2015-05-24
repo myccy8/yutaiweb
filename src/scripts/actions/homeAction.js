@@ -9,6 +9,12 @@ var HomeActions = {
         AppDispatcher.dispatch({
             actionType:HomeConstants.GET_INDEX
         });
+    },
+    getCategoryItems(name){
+        AppDispatcher.dispatch({
+            name:name,
+            actionType:HomeConstants.GET_CATEGORY_ITEMS
+        });
     }
 };
 module.exports = HomeActions;

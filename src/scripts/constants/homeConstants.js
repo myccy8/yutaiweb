@@ -5,5 +5,6 @@
 var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
-    GET_INDEX: null
+    GET_INDEX: null,
+    GET_CATEGORY_ITEMS:null
 });

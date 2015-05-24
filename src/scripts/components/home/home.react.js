@@ -40,7 +40,7 @@ var Home=React.createClass({
         }
     },
     changeState(){
-        var images=HomeStore.getIndexImage(),temp=[];
+        var images=HomeStore.getIndexImage()||[],temp=[];
         images.map((v,i)=>{
               temp.push(<div className="mod_01" key={i}>
                   <a href={v.Url}>
@@ -50,7 +50,7 @@ var Home=React.createClass({
                               <dd>{v.Content}</dd>
                           </dl>
                       </a>
-                  </div>)
+                  </div>);
 
         });
         this.setState({content:temp});
