@@ -4,7 +4,7 @@
 'use strict';
 var React=require('react');
 var HomeAction=require('../../actions/homeAction');
-var HomeStore=require('../../stores/homeStore');
+var HomeStore=require('../../s/HomeStore');
 var Service=require('../../services/commonService');
 var style=require('../../../styles/main.css');
 var Footer=require('./footer.react');
