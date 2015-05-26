@@ -7,6 +7,7 @@ var Router = require('react-router');
 var Store=require('../../stores/homeStore');
 var Action=require('../../actions/homeAction');
 var InfiniteScroll = require('react-infinite-scroll')(React);
+var style=require('../../../styles/delicacy.css');
 var {  Link } = Router;
 var pageIndex=0;
 var Footer=React.createClass({
@@ -27,6 +28,21 @@ var Footer=React.createClass({
     },
     componentDidMount() {
         this.changeRoute(0);
+    },
+    changeRoute(index) {
+        var id = this.context.router.getCurrentParams().id;
+        var categoryId = this.context.router.getCurrentParams().categoryId;
+        Action.getArtcles(categoryId,id, index);
+    },
+    changeState() {
+        var id = this.context.router.getCurrentParams().id || 'default';
+        var products = Store.getProducts(id, pageIndex);
+        var top=Store.getProductTop();
+        this.refs.productTop.getDOMNode().innerHTML=top||"";
+        this.setState({
+            data: this.state.data.concat(products.list),
+            totalPage: products.totalPage
+        });
     },
     renderArticles(v,i){
              return <div className="block">
