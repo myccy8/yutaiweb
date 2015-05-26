@@ -15,6 +15,14 @@ var HomeActions = {
             name:name,
             actionType:HomeConstants.GET_CATEGORY_ITEMS
         });
+    },
+    getArtcles(categoryId,id,index){
+        AppDispatcher.dispatch({
+            categoryId:categoryId,
+            id:id,
+            index:index,
+            actionType:HomeConstants.GET_ARTICLES
+        });
     }
 };
 module.exports = HomeActions;
