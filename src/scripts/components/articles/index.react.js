@@ -5,8 +5,9 @@
 var React=require('react');
 var Store=require('../../stores/homeStore');
 var Action=require('../../actions/homeAction');
+var Service=require('../../services/commonService');
 var InfiniteScroll = require('react-infinite-scroll')(React);
-var style=require('../../../styles/delicacy.css');
+var style=require('../../../styles/article.css');
 var Footer=require('../common/footer.react');
 var pageIndex=0;
 var Articles=React.createClass({
@@ -54,7 +55,7 @@ var Articles=React.createClass({
     },
     renderArticles(v,i){
              return <div className="block" key={i}>
-                 <div className="block-l"><a href={v.url}><img src={v.image} className="img" /></a></div>
+                 <div className="block-l"><a href={v.url}><img src={Service.filterUrl(v.image)} className="img" /></a></div>
                  <div className="block-r">
                      <dl>
                          <dt><a style={{color: '#000000;'}} href={v.url}>{v.title}</a></dt>
@@ -68,12 +69,12 @@ var Articles=React.createClass({
         return( <div id="react-paginate">
             <header>
                 <div className="headerimg">
-                    <img src={this.state.articlesTop.categoryImage} />
+                    <img src={Service.filterUrl(this.state.articlesTop.categoryImage)} />
                     <p>{this.state.articlesTop.categoryName}</p>
                 </div>
             </header>
             <section>
-                <p><a ><img src={this.state.articlesTop.indexImage}  className="img" /></a></p>
+                <p><a ><img src={Service.filterUrl(this.state.articlesTop.indexImage)}  className="img" /></a></p>
                 <article>
                 <dl>
                     <dt><a style={{color: '#000000',fontSize:'1.25em'}}>{this.state.articlesTop.title}</a></dt>
