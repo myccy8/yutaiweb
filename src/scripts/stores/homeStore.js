@@ -7,7 +7,7 @@ var HomeConstants = require('../constants/homeConstants');
 var EventEmitter = require('events').EventEmitter;
 var Service = require('../services/commonService');
 var assign = require('object-assign');
-var indexImages, categoryItems,articles={};
+var indexImages, categoryItems,articles={},articlesTop={};
 function getIndex(callback){
     if(indexImages){
         if(callback){
@@ -26,6 +26,13 @@ function getArticles(categoryId,id,index,callback){
     if (!articles[id] || !articles[id][index]) {
         Service.request('api/home/getarticles', 'POST', {id:id,categoryId:categoryId,index:index,size:5}, function (data) {
             var result = data.articles;
+            articlesTop[id]={
+                title:data.title,
+                indexImage:data.indexImage,
+                content:data.content,
+                categoryImage:data.categoryImage,
+                categoryName:data.categoryName
+            };
             if (!articles[id]) {
                 articles[id] = {};
             }
@@ -56,6 +63,13 @@ function getCategoryItems(callback,name){
 var HomeStore = assign({}, EventEmitter.prototype, {
     getIndexImage() {
        return  indexImages;
+    },
+    getArticles(id,index){
+        return {
+            totalPage: articles[id].totalPage,
+            list: articles[id][index],
+            articlesTop:articlesTop[id]
+        };
     },
     getCategoryItems(){
         return  categoryItems;
