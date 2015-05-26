@@ -30,7 +30,7 @@ var Home=React.createClass({
         var articles=HomeStore.getCategoryItems()||[],temp=[];
         articles.map((v,i)=>{
             temp.push(<article key={i}>
-                <a style={{display: 'block',width:'100%'}} onClick={()=>this.context.router.transitionTo(`/articles/${v.categoryId}/${v.categoryItemsId}`)}><img src={Service.filterUrl(v.categoryImage)} /> <p>{v.title}</p></a>
+                <a style={{display: 'block',width:'100%'}} onClick={()=>this.context.router.transitionTo(`/articles/${v.title}/${v.categoryItemsId}`)}><img src={Service.filterUrl(v.categoryImage)} /> <p>{v.title}</p></a>
             </article>);
         });
         this.setState({content:temp});

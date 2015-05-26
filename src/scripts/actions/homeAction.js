@@ -18,7 +18,7 @@ var HomeActions = {
     },
     getArtcles(categoryId,id,index){
         AppDispatcher.dispatch({
-            categoryId:categoryId,
+            categoryItemName:categoryId,
             id:id,
             index:index,
             actionType:HomeConstants.GET_ARTICLES

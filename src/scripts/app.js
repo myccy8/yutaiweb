@@ -27,7 +27,7 @@ if (window.getComputedStyle) {
         <Route handler={App}>
             <DefaultRoute  handler={Home} />
             <Route name="delicacy" path="/delicacy" handler={Delicacy}/>
-            <Route name="articles" path="/articles/:categoryId/:id" handler={Articles}/>
+            <Route name="articles" path="/articles/:categoryItemName/:id" handler={Articles}/>
         </Route>
     );
     if (!window.applicationCache) {

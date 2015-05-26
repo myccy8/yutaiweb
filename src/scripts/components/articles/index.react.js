@@ -35,8 +35,8 @@ var Articles=React.createClass({
     },
     changeRoute(index) {
         var id = this.context.router.getCurrentParams().id;
-        var categoryId = this.context.router.getCurrentParams().categoryId;
-        Action.getArtcles(categoryId,id, index);
+        var categoryItemName = this.context.router.getCurrentParams().categoryItemName;
+        Action.getArtcles(categoryItemName,id, index);
     },
     changeState() {
         var id = this.context.router.getCurrentParams().id;

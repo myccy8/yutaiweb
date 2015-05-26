@@ -22,9 +22,9 @@ function getIndex(callback){
         });
     }
 }
-function getArticles(categoryId,id,index,callback){
+function getArticles(categoryItemName,id,index,callback){
     if (!articles[id] || !articles[id][index]) {
-        Service.request('api/home/getarticles', 'POST', {id:id,categoryId:categoryId,index:index,size:5}, function (data) {
+        Service.request('api/home/getarticles', 'POST', {id:id,categoryItemName:categoryItemName,index:index,size:5}, function (data) {
             var result = data.articles;
             articlesTop[id]={
                 title:data.title,
@@ -93,7 +93,7 @@ AppDispatcher.register(function (action) {
             getCategoryItems(()=>HomeStore.emitChange('getcategoryitems'),action.name);
             break;
         case HomeConstants.GET_ARTICLES:
-            getArticles(action.categoryId,action.id,action.index,()=>HomeStore.emitChange('getarticles'),action.name);
+            getArticles(action.categoryItemName,action.id,action.index,()=>HomeStore.emitChange('getarticles'));
             break;
     }
 });
