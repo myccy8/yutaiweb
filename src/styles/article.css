@@ -1,0 +1,30 @@
+/**
+ * Created by lindongdong on 2015/5/25.
+ */
+html,body,menu,ul,ol,li,dl,dt,dd,p,div,form,h1,h2,h3,h4,h5,h6,img,a img,input,button,textarea,fieldset{padding:0;margin:0;border:0;}
+a{ text-decoration:none;}
+img{border:none;display:block}
+body{background-size:100% 100%;font-family:"微软雅黑", Arial, Helvetica, sans-serif;}
+.clear{clear:both; height:0;}
+section{margin:10px;font-size:12px}
+section img{width:100%}
+article{margin-top:10px;color:#373737;}
+article dl{border-bottom:1px solid #ccc}
+article dl dt{font-size:14px;color:#000}
+article dl dd{color:#999;margin:5px auto 10px auto; line-height:160%;font-size:1.125em}
+.block{display:-webkit-box;padding:12px 0;border-bottom:1px solid #ccc}
+.block-l{width:95px; height:70px;}
+.block-l img{width:95px; height:70px}
+.block-r{-webkit-box-flex:1;padding-left:10px;}
+.block-r dl dt{font-size:14px;color:#000;min-height:25px;position:relative;top:-5px}
+.block-r dl dd{color:#999; }
+.headerimg{position:relative;left:0;top:0; overflow:hidden;}
+.headerimg img{display:block;width:100%}
+.headerimg p{position:absolute;width:100%;top:25%;  text-align:center;color:#fff; font-size:2em;font-size:2em; font-family:"方正楷体";font-weight:bold}
+footer{height:80px; text-align:center;font-size:14px}
+footer p:first-child{height:40px; line-height:40px;color:#9D9D9D;}
+footer p:first-child a{color:#4C91BE;margin:0 15px}
+footer p:last-child{font-size:12px;color:#9D9D9D;}
+.page{ text-align:center; margin-top:10px}
+.page a{color:#555;padding:2px 3px; margin:0 8px;font-size:12px}
+.__pageFocus{background:#eee}

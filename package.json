@@ -44,6 +44,7 @@
       "es6-loader":"0.2.0",
       "svgo-loader":"1.1.0",
       "keymirror":"0.1.1",
+      "react-infinite-scroll":"0.1.5",
       "object-assign":"2.0.0"
   }
 }
