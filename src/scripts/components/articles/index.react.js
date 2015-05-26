@@ -7,8 +7,9 @@ var Store=require('../../stores/homeStore');
 var Action=require('../../actions/homeAction');
 var InfiniteScroll = require('react-infinite-scroll')(React);
 var style=require('../../../styles/delicacy.css');
+var Footer=require('../common/footer.react');
 var pageIndex=0;
-var Footer=React.createClass({
+var Articles=React.createClass({
     contextTypes: {
         router: React.PropTypes.func
     },
@@ -87,7 +88,8 @@ var Footer=React.createClass({
                       {this.state.data.map(this.renderArticles)}
             </InfiniteScroll>
                 </section>
+            <Footer/>
         </div>);
     }
 });
-module.exports=Footer;
+module.exports=Articles;
