@@ -3,14 +3,15 @@
  */
 'use strict';
 var React=require('react');
-var Router = require('react-router');
 var Store=require('../../stores/homeStore');
 var Action=require('../../actions/homeAction');
 var InfiniteScroll = require('react-infinite-scroll')(React);
 var style=require('../../../styles/delicacy.css');
-var {  Link } = Router;
 var pageIndex=0;
 var Footer=React.createClass({
+    contextTypes: {
+        router: React.PropTypes.func
+    },
     getInitialState(){
         return {
             data: [],
