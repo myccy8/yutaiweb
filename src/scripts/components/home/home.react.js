@@ -42,16 +42,17 @@ var Home=React.createClass({
     changeState(){
         var images=HomeStore.getIndexImage()||[],temp=[];
         images.map((v,i)=>{
-              temp.push(<div className="mod_01" key={i}>
-                  <a href={v.Url}>
-                      <img src={Service.filterUrl(v.ImagePath)}/>
-                          <dl className="dl">
-                              <dt>{v.Title}</dt>
-                              <dd>{v.Content}</dd>
-                          </dl>
-                      </a>
-                  </div>);
-
+            if(v.Type=='0') {
+                temp.push(<div className="mod_01" key={i}>
+                    <a href={v.Url}>
+                        <img src={Service.filterUrl(v.ImagePath)}/>
+                        <dl className="dl">
+                            <dt>{v.Title}</dt>
+                            <dd>{v.Content}</dd>
+                        </dl>
+                    </a>
+                </div>);
+            }
         });
         this.setState({content:temp});
     },
