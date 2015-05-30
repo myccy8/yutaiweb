@@ -7,10 +7,10 @@ var Store=require('../../stores/homeStore');
 var Action=require('../../actions/homeAction');
 var Service=require('../../services/commonService');
 var InfiniteScroll = require('react-infinite-scroll')(React);
-var style=require('../../../styles/concert.css.css');
+var style=require('../../../styles/concert.css');
 var Footer=require('../common/footer.react');
 var pageIndex={};
-var typeId=-1;
+var typeId=-1,current=0;
 var Articles=React.createClass({
     contextTypes: {
         router: React.PropTypes.func
@@ -19,7 +19,8 @@ var Articles=React.createClass({
         return {
             data: [],
             totalPage: 0,
-            articlesTop:{}
+            articlesTop:{},
+            category:''
         };
     },
     componentWillMount(){
@@ -36,14 +37,74 @@ var Articles=React.createClass({
     componentDidMount() {
         Action.getMusicCategory();
     },
+    setImage(arr,obj){
+        for(var image of arr){
+            obj.push('<a style="position:relative;top:0;left:0;overflow:hidden" href="'+image.Url+'"><img src="'+Service.filterUrl(image.ImagePath)+'" class="topimg"  /><p class="p-title">'+image.Title+'</p></a>');
+        }
+    },
     getmusiccategory(){
-        var data=Store.getMusicCategory;
-        var images=data.images;
-        var category=data.category;
+        var data=Store.getMusicCategory();
+        var images=data.images||[];
+        var category=data.category||[];
+        var html= [],temp=[<a  id="listall" className="" onClick={()=>this.getMusicByCategory(-1)}>全部</a>];
+        this.setImage(images,html);
+        this.setImage(images,html);
+        var i = 0,divs= '';
+        for (; i < html.length; i++) {
+            divs += '<div></div>'
+        }
+       for(var item of category){
+           temp.push(<a onClick={()=>this.getMusicByCategory(item.concertCategoryId)} >{item.name}</a>)
+       }
+        this.setState({category:temp},()=>{
+            var tag = '';
+                var size=$(".top-l>a").size();
+                if(size<=6){
+                    $(".toggle").css("display","none");
+                } else {
+                    $(".toggle").click(function(){
+                        $(".top-l>a:gt(4)").toggle();
+                        var rel=$(this).attr("rel");
+
+                        if(rel==0){
+                            $(this).html("更多>>").css("fontSize","14px");
+                            $(this).attr("rel",1);
+                        }else{
+                            $(this).html("收起 ↑").css("fontSize","14px");
+                            $(this).attr("rel",0);
+                        }
+                    }).trigger("click");
+                }
+                if (tag == '') {
+                } else {
+                    $(".top-l>a").each(function(idx,item){
+                        var html=$(item).html();
+                        if(tag==html && size>6){
+                            if (5 <= idx) {
+                                $(".top-l>a:gt(4)").toggle();
+                                $(".toggle").html("收起 ↑").css("fontSize","14px");
+                                $(".toggle").attr("rel",0);
+                            }
+                        }
+                    });
+                }
+        });
+        $('#carousel').html(divs).touchCarousel(
+            {
+                loop: 5000,
+                pages:html,
+                isFollow: true,
+                dot1: '/files/images/event/dot2.png?r=20140926',
+                dot2: '/files/images/event/dot1.png?r=20140926'
+            }
+        );
         this.changeRoute(0);
     },
     changeRoute(index) {
         Action.getMusicList(typeId, index);
+    },
+    getMusicByCategory(typeId){
+
     },
     changeState() {
         var id = this.context.router.getCurrentParams().id;
@@ -82,6 +143,12 @@ var Articles=React.createClass({
                         <div className="clear"></div>
                     </div>
                 </p>
+                <div className="toplist">
+                    <div className="top-l">
+                    {this.state.category}
+                    </div>
+                    <div className="top-r"><a href={void(0)} className="toggle" rel="0">收起 ↑</a></div>
+                </div>
             </header>
             <section>
                 <p><a ><img src={Service.filterUrl(this.state.articlesTop.indexImage)}  className="img" /></a></p>

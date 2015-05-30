@@ -7,6 +7,7 @@ var Router=require('react-router');
 var Home=require('./components/home/home.react');
 var Delicacy=require('./components/delicacy/index.react');
 var Articles=require('./components/articles/index.react');
+var Music=require('./components/concert/index');
 if (window.getComputedStyle) {
     var Home = require('./components/home/home.react');
 
@@ -27,6 +28,7 @@ if (window.getComputedStyle) {
         <Route handler={App}>
             <DefaultRoute  handler={Home} />
             <Route name="delicacy" path="/delicacy" handler={Delicacy}/>
+            <Route name="music" path="/music" handler={Music}/>
             <Route name="articles" path="/articles/:categoryItemName/:id" handler={Articles}/>
         </Route>
     );

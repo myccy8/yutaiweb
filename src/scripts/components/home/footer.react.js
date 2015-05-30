@@ -20,7 +20,7 @@ var Footer=React.createClass({
                <p className="pl"><a href="/wechat/article/index/tag/%E6%97%85%E6%B8%B8%E5%BA%A6%E5%81%87"><img src={lydj} height="23" style={{marginTop:'7px',align:'middle'}} /><br/>旅游度假</a></p>
            </div>
            <div  className="table-cell">
-               <p className="pm"><a href="/wechat/event"><img src={zlyc} height="20"style={{marginTop:'10px',align:'middle'}}/><br/>展览演出</a></p>
+               <p className="pm"><Link to="music"><img src={zlyc} height="20"style={{marginTop:'10px',align:'middle'}}/><br/>展览演出</Link></p>
                <p className="pm"><a href="/cafe-app"><img src={xzkf}  height="23" style={{marginTop:'7px',align:'middle'}} /><br/>小资咖啡</a></p>
            </div>
            <div  className="table-cell">
