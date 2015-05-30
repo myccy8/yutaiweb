@@ -16,6 +16,24 @@ var HomeActions = {
             actionType:HomeConstants.GET_CATEGORY_ITEMS
         });
     },
+    getMusicList(type,index){
+        AppDispatcher.dispatch({
+            type:type,
+            index:index,
+            actionType:HomeConstants.GET_MUSIC
+        });
+    },
+    getSingleMusic(id){
+        AppDispatcher.dispatch({
+            id:id,
+            actionType:HomeConstants.GET_SINGLE_MUSIC
+        });
+    },
+    getMusicCategory(){
+        AppDispatcher.dispatch({
+            actionType:HomeConstants.GET_MUSIC_CATEGORY
+        });
+    },
     getArtcles(categoryId,id,index){
         AppDispatcher.dispatch({
             categoryItemName:categoryId,

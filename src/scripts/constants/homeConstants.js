@@ -7,5 +7,8 @@ var keyMirror = require('keymirror');
 module.exports = keyMirror({
     GET_INDEX: null,
     GET_CATEGORY_ITEMS:null,
-    GET_ARTICLES:null
+    GET_ARTICLES:null,
+    GET_MUSIC:null,
+    GET_SINGLE_MUSIC:null,
+    GET_MUSIC_CATEGORY:null
 });

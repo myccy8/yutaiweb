@@ -1,0 +1,51 @@
+html,body,menu,ul,ol,li,dl,dt,dd,p,div,form,h1,h2,h3,h4,h5,h6,img,a img,input,button,textarea,fieldset{
+    padding:0;
+    margin:0;
+    border:0;
+    font-size:14px;
+}
+a{ text-decoration:none}
+body{
+    background-size:100% 100%;
+    font-family:"微软雅黑", Arial, Helvetica, sans-serif;
+}
+.clear{
+    clear:both; height:0;
+}
+header{border-bottom:1px solid #ccc;padding-bottom:0;width:100%; margin:0 auto}
+.topimg{width:320px;margin:auto;}
+
+section{padding:0 10px;min-width:300px; margin:auto}
+.block{border-bottom:1px solid #ccc;padding:10px 0;display:-webkit-box;-webkit-box-orient:horizontal;min-width:300px;}
+.leftimg{width:80px;}
+.rightimg{-webkit-box-flex:1;margin-left:10px}
+.block dl{display:table-cell; vertical-align: top;padding-left:10px}
+.block dl dt{font-size:14px;min-height:60px}
+.block dl dd{font-size:12px; font-size:12px;color:#999; line-height:150%}
+footer{height:80px; text-align:center}
+footer p:first-child{height:40px; line-height:40px;color:#9D9D9D;}
+footer p:first-child a{color:#4C91BE;margin:0 15px}
+footer p:last-child{font-size:12px;color:#9D9D9D;}
+.carousel *{ -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-user-select: none;-webkit-touch-callout: none;-webkit-user-drag: none;}
+.carousel {margin: 0 auto; width:320px;}
+.carousel img{width:100%}
+.carousel div{position: relative;}
+.carousel div span{position: absolute;height: 100%;width: 100%;font-size: 80px;line-height: 400px;font-weight: bold;text-align: center;}
+.page{ text-align:center; margin-top:10px}
+.page a{color:#555;padding:2px 3px; margin:0 8px;font-size:12px}
+.__pageFocus{background:#eee}
+.table{width:100%; }
+.table tr td{font-size:12px; color:#999; line-height:140%;word-break:break-all; }
+.table tr td:last-child .arrow{float:right;color:#ccc;margin:0 10px;}
+.toplist{display:-webkit-box;}
+.toplist>a{color:#72B9E6;display:inline-block; border-radius:5px;margin-left:4px}
+.toplist>a:hover{ background:#e5e5e5;}
+.toggle{font-size:14px;color:#72B9E6;}
+.top-l{ -webkit-box-flex: 1;padding-left:10px;}
+.top-l a{color:#72B9E6;font-size:14px;margin:2px 3px;padding:2px 3px; border-radius:3px;display:inline-block}
+.top-r{width:50px;min-height:25px; text-align:right;padding-right:10px;padding-top:2px;margin-top:2px;}
+.top-r a{color:#72B9E6;font-size:12px;}
+.p-title{position:absolute;bottom:4px;left:0;height:35px;line-height:35px;background:rgba(0,0,0,0.3); text-align:center;width:100%;color:#FFF}
+@media only screen and (min-device-width:360px) and (max-device-width:2000px){
+    .carousel {width:360px; }
+}
