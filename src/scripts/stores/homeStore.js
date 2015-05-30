@@ -13,6 +13,18 @@ var HomeStore = assign({}, EventEmitter.prototype, {
     getIndexImage() {
         return  indexImages;
     },
+    getMusicCategory(){
+      return {images:musicImages,category:musicCategory};
+    },
+    getMusicList(id,index){
+        return {
+            totalPage: musiclist[id].totalPage,
+            list: musiclist[id][index]
+        };
+    },
+    getMusic(id){
+        return music[id];
+    },
     getArticles(id,index){
         return {
             totalPage: articles[id].totalPage,
