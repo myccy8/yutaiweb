@@ -76,7 +76,7 @@ var Detail=React.createClass({
                         <tr>
                             <td valign="top"><img src={c3} width="11" height="12" /></td>
                             <td>
-                                <a className="adr arrow" style={{marginLeft: 0, float:'left', color: '#555'}} href="" >
+                                <a className="adr arrow" style={{marginLeft: 0, float:'left', color: '#555'}} onClick={()=>this.context.router.transitionTo(`/map/${this.state.music.id}`)} >
                                 <span>{this.state.music.address}</span>
                                     <img src={open} width="16" />
                                 </a>
