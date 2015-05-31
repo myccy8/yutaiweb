@@ -85,7 +85,7 @@ var Articles=React.createClass({
                 pageStart={0}
                 loadMore={this.loadMore}
                 hasMore={flag}
-                loader='<div>loading...</div>'>
+                loader={<div>loading...</div>}>
                       {this.state.data.map(this.renderArticles)}
             </InfiniteScroll>
                 </section>

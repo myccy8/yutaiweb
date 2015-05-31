@@ -13,6 +13,7 @@ var c1=require('../../../images/icon1.png');
 var c2=require('../../../images/icon2.png');
 var c3=require('../../../images/icon3.png');
 var pageIndex={};
+var $;
 var typeId=-1,current=-1;
 var Music=React.createClass({
     contextTypes: {
@@ -26,12 +27,15 @@ var Music=React.createClass({
         };
     },
     componentWillMount(){
+        $=jQuery;
         Store.bind('getmusiccategory', this.getmusiccategory);
         Store.bind('getmusiclist', this.changeState);
         style.use();
     },
     componentWillUnmount(){
-        pageIndex=0;
+        pageIndex={};
+        typeId=-1;
+        current=-1;
         Store.off('getmusiccategory', this.getmusiccategory);
         Store.off('getmusiclist', this.changeState);
         style.unuse();
@@ -188,7 +192,7 @@ var Music=React.createClass({
                     pageStart={0}
                     loadMore={this.loadMore}
                     hasMore={flag}
-                    loader='<div>loading...</div>'>
+                    loader={<div>loading...</div>}>
                       {data.map(this.renderMusic)}
                 </InfiniteScroll>
             </section>

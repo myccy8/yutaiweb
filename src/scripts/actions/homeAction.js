@@ -17,11 +17,14 @@ var HomeActions = {
         });
     },
     getMusicList(type,index){
-        AppDispatcher.dispatch({
-            type:type,
-            index:index,
-            actionType:HomeConstants.GET_MUSIC
-        });
+        setTimeout(()=>{
+            AppDispatcher.dispatch({
+                type:type,
+                index:index,
+                actionType:HomeConstants.GET_MUSIC
+            });
+        },1);
+
     },
     getSingleMusic(id){
         AppDispatcher.dispatch({
