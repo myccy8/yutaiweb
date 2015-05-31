@@ -9,17 +9,19 @@ var Service=require('../../services/commonService');
 var InfiniteScroll = require('react-infinite-scroll')(React);
 var style=require('../../../styles/concert.css');
 var Footer=require('../common/footer.react');
+var c1=require('../../../images/icon1.png');
+var c2=require('../../../images/icon2.png');
+var c3=require('../../../images/icon3.png');
 var pageIndex={};
-var typeId=-1,current=0;
-var Articles=React.createClass({
+var typeId=-1,current=-1;
+var Music=React.createClass({
     contextTypes: {
         router: React.PropTypes.func
     },
     getInitialState(){
         return {
-            data: [],
-            totalPage: 0,
-            articlesTop:{},
+            data:{},
+            totalPage: {},
             category:''
         };
     },
@@ -42,53 +44,60 @@ var Articles=React.createClass({
             obj.push('<a style="position:relative;top:0;left:0;overflow:hidden" href="'+image.Url+'"><img src="'+Service.filterUrl(image.ImagePath)+'" class="topimg"  /><p class="p-title">'+image.Title+'</p></a>');
         }
     },
+    setCategory(flag){
+        var data=Store.getMusicCategory();
+        var temp=[<a  id="listall" className={current==-1?'current':''} onClick={()=>this.getMusicByCategory(-1,-1)}>全部</a>];
+        var category=data.category||[];
+        category.map((v,i)=>{
+            temp.push(<a className={current==i?'current':''} onClick={()=>this.getMusicByCategory(v.concertCategoryId,i)} >{v.name}</a>)
+        });
+        this.setState({category:temp},()=>{
+            if(flag) {
+                var tag = '';
+                var size = $(".top-l>a").size();
+                if (size <= 6) {
+                    $(".toggle").css("display", "none");
+                } else {
+                    $(".toggle").click(function () {
+                        $(".top-l>a:gt(4)").toggle();
+                        var rel = $(this).attr("rel");
+
+                        if (rel == 0) {
+                            $(this).html("更多>>").css("fontSize", "14px");
+                            $(this).attr("rel", 1);
+                        } else {
+                            $(this).html("收起 ↑").css("fontSize", "14px");
+                            $(this).attr("rel", 0);
+                        }
+                    }).trigger("click");
+                }
+                if (tag == '') {
+                } else {
+                    $(".top-l>a").each(function (idx, item) {
+                        var html = $(item).html();
+                        if (tag == html && size > 6) {
+                            if (5 <= idx) {
+                                $(".top-l>a:gt(4)").toggle();
+                                $(".toggle").html("收起 ↑").css("fontSize", "14px");
+                                $(".toggle").attr("rel", 0);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    },
     getmusiccategory(){
         var data=Store.getMusicCategory();
         var images=data.images||[];
-        var category=data.category||[];
-        var html= [],temp=[<a  id="listall" className="" onClick={()=>this.getMusicByCategory(-1)}>全部</a>];
+        var html= [];
         this.setImage(images,html);
         this.setImage(images,html);
         var i = 0,divs= '';
         for (; i < html.length; i++) {
             divs += '<div></div>'
         }
-       for(var item of category){
-           temp.push(<a onClick={()=>this.getMusicByCategory(item.concertCategoryId)} >{item.name}</a>)
-       }
-        this.setState({category:temp},()=>{
-            var tag = '';
-                var size=$(".top-l>a").size();
-                if(size<=6){
-                    $(".toggle").css("display","none");
-                } else {
-                    $(".toggle").click(function(){
-                        $(".top-l>a:gt(4)").toggle();
-                        var rel=$(this).attr("rel");
-
-                        if(rel==0){
-                            $(this).html("更多>>").css("fontSize","14px");
-                            $(this).attr("rel",1);
-                        }else{
-                            $(this).html("收起 ↑").css("fontSize","14px");
-                            $(this).attr("rel",0);
-                        }
-                    }).trigger("click");
-                }
-                if (tag == '') {
-                } else {
-                    $(".top-l>a").each(function(idx,item){
-                        var html=$(item).html();
-                        if(tag==html && size>6){
-                            if (5 <= idx) {
-                                $(".top-l>a:gt(4)").toggle();
-                                $(".toggle").html("收起 ↑").css("fontSize","14px");
-                                $(".toggle").attr("rel",0);
-                            }
-                        }
-                    });
-                }
-        });
+       this.setCategory(true);
         $('#carousel').html(divs).touchCarousel(
             {
                 loop: 5000,
@@ -103,17 +112,23 @@ var Articles=React.createClass({
     changeRoute(index) {
         Action.getMusicList(typeId, index);
     },
-    getMusicByCategory(typeId){
-
+    getMusicByCategory(_typeId,index){
+        current=index;
+        typeId=_typeId;
+        this.state.data[typeId]=[];
+        this.state.totalPage[typeId]=0;
+        this.changeRoute(0);
+        this.setCategory();
     },
     changeState() {
-        var id = this.context.router.getCurrentParams().id;
-        var articles = Store.getArticles(id, pageIndex);
-        this.setState({
-            data: this.state.data.concat(articles.list),
-            totalPage: articles.totalPage,
-            articlesTop:articles.articlesTop
-        });
+        pageIndex[typeId]= pageIndex[typeId]||0;
+        var musiclist=Store.getMusicList(typeId,pageIndex[typeId]);
+        if(!this.state.data[typeId]){
+            this.state.data[typeId]=[];
+        }
+        this.state.data[typeId]=this.state.data[typeId].concat(musiclist.list);
+        this.state.totalPage[typeId]=musiclist.totalPage;
+        this.forceUpdate();
     },
     loadMore() {
         pageIndex[typeId]= pageIndex[typeId]||0;
@@ -122,19 +137,37 @@ var Articles=React.createClass({
             this.changeRoute(pageIndex[typeId]);
         }.bind(this), 100);
     },
-    renderArticles(v,i){
-        return <div className="block" key={i}>
-            <div className="block-l"><a href={v.url}><img src={Service.filterUrl(v.image)} className="img" /></a></div>
-            <div className="block-r">
-                <dl>
-                    <dt><a style={{color: '#000000;'}} href={v.url}>{v.title}</a></dt>
-                    <dd>{v.detail}</dd>
-                </dl>
-            </div>
-        </div>;
+    renderMusic(v,i){
+        return <a onClick={()=>this.context.router.transitionTo(`/music/${v.id}`)} key={i}>
+            <div className="block">
+                <div className="leftimg"><img src={Service.filterUrl(v.image)} width="80" height="115"/></div>
+                    <div className="rightimg">
+                        <p style={{fontSize:'14px',minHeight:'55px',color:'#555'}}>{v.title}</p>
+                        <table className="table">
+                            <tr>
+                                <td width="15" valign="top"><img src={c1} width="11" height="11"  /></td>
+                                <td>
+                                {v.time}
+                                   </td>
+                            </tr>
+                            <tr>
+                                <td valign="top"><img src={c3} width="11" height="12" /></td>
+                                <td>
+                                {v.address}</td>
+                            </tr>
+                            <tr>
+                                <td valign="top"><img src={c2}  width="11" height="12"   /></td>
+                                <td>{v.price}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div className="clear"></div>
+                </div>
+            </a>;
     },
     render(){
         var flag=pageIndex<this.state.totalPage;
+        var data=this.state.data[typeId]||[];
         return( <div id="react-paginate">
             <header>
                 <p className="topimg" >
@@ -151,23 +184,16 @@ var Articles=React.createClass({
                 </div>
             </header>
             <section>
-                <p><a ><img src={Service.filterUrl(this.state.articlesTop.indexImage)}  className="img" /></a></p>
-                <article>
-                    <dl>
-                        <dt><a style={{color: '#000000',fontSize:'1.25em'}}>{this.state.articlesTop.title}</a></dt>
-                        <dd>{this.state.articlesTop.content}</dd>
-                    </dl>
-                </article>
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={this.loadMore}
                     hasMore={flag}
                     loader='<div>loading...</div>'>
-                      {this.state.data.map(this.renderArticles)}
+                      {data.map(this.renderMusic)}
                 </InfiniteScroll>
             </section>
             <Footer/>
         </div>);
     }
 });
-module.exports=Articles;
+module.exports=Music;

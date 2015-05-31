@@ -1,0 +1,45 @@
+html,body,menu,ul,ol,li,dl,dt,dd,p,div,form,h1,h2,h3,h4,h5,h6,img,a img,input,button,textarea,fieldset{
+    padding:0;
+    margin:0;
+    border:0;
+    font-size:14px;
+}
+a{ text-decoration:none}
+body{
+    background-size:100% 100%;
+    font-family:"微软雅黑", Arial, Helvetica, sans-serif;
+}
+.clear{
+    clear:both; height:0;
+}
+header{border-bottom:1px solid #ccc; width:100%;margin:auto }
+.topimg img{width:100%; display:block}
+section{padding:10px;min-width:300px;margin:0 auto; }
+section .dl dt{font-size:18px;}
+section .dl dd{color:#555}
+section .dl dd span:first-child{display:inline-block;padding:8px 0 }
+section .dl dd span:last-child{width:90%;padding:8px 0; display:inline-block; border-bottom:1px solid #ccc }
+section .dl .arrow{float:right;color:#ccc;margin-right:10px}
+.message{position:absolute; bottom:0; left:35%;display:none}
+.btn-go{ line-height:50px;text-align:center;padding:15px 0;}
+.btn-go a{width:48%;height:32px; line-height:32px; display:inline-block; background:#61B3E3;color:#fff;border-radius:5px;}
+.go-left{float:left;position:relative}
+.go-right{float:right;position:relative}
+article{padding:5px 0;width:100%;font-size:12px;color:#333;margin-top:15px; line-height:160%;border-top:1px solid #ccc;}
+article p{padding:5px 0; line-height:165%;}
+article>p{padding:5px 0 0 0;}
+article>div img{width:100%;margin:auto}
+.bottom{height:60px; line-height:60px; background:rgba(111,94,69,0.8); width:100%; position:fixed;bottom:0}
+.bottom .banner{margin:auto;display:block;margin-top:10px}
+.bottom .close{position:absolute;right:5px;bottom:50px}
+footer{height:80px; text-align:center;font-size:14px;margin-bottom:60px}
+footer p:first-child{height:40px; line-height:40px;color:#9D9D9D;}
+footer p:first-child a{color:#4C91BE;margin:0 15px}
+footer p:last-child{font-size:12px;color:#9D9D9D;}
+.table{width:100%;margin-top:5px}
+.table tr{}
+.table tr td{ padding:1px 0;color:#555;word-break:break-all;padding:5px 0; line-height:160%}
+.table tr td:last-child{border-bottom:1px solid #ccc}
+.table tr td:last-child .arrow{float:right;color:#ccc;margin:0 10px;}
+.adr{display:block;width:100%}
+.adr img{float:right;padding-right:10px;padding-top:4px; display:inline-block}

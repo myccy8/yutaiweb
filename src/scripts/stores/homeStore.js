@@ -67,7 +67,7 @@ function getMusicList(id,index){
                 musiclist[id] = {};
             }
             if (data.total !== null) {
-                articles[id].totalPage = Math.ceil(parseInt(data.total) / 5);
+                musiclist[id].totalPage = Math.ceil(parseInt(data.total) / 5);
             }
             musiclist[id][index] = result;
             HomeStore.emitChange('getmusiclist');
