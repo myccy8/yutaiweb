@@ -1,0 +1,217 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+    font-weight: normal;
+}
+ol, ul {
+    list-style: none outside none;
+}
+html {
+    height: 100%;
+    overflow: hidden;
+    background-color: #DDA0DD;
+}
+body {
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+    overflow: hidden;
+}
+#xg-about {
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+.keep {
+    -webkit-transition: -webkit-transform 0.3s linear 0s;
+    -webkit-transition: transform 0.3s linear 0s;
+    transition: -webkit-transform 0.3s linear 0s;
+    transition: transform 0.3s linear 0s;
+}
+#xg-about section {
+    height: 100%;
+    position: relative;
+    padding:0 10px
+}
+.sec0 {
+    background-color: rgb(80, 145, 205);
+}
+.sec1 {
+    background-color: #C687E0;
+}
+.sec2 {
+    background-color: rgb(186,217,80);
+}
+.sec3 {
+    background-color: #FC7C7C;
+}
+.sec4 {
+    background-color: #7CCD7C;
+}
+.sec5 {
+    background-color: #FBA16A;
+}
+section {
+    text-align: center;
+    color: #FFF;
+}
+section h2 {
+    display: block;
+    font-size: 2.2em;
+    font-weight: 600;
+    line-height: 1.5em;
+    padding-top: 3em;
+}
+section p {
+    font-size: 1.5em;
+    line-height: 2em;
+    color: #FFF;
+    padding:0 20px;
+    font-family:'寰蒋闆呴粦',Arial, Helvetica, sans-serif
+}
+section a{
+    font-size: 1em;
+    line-height: 1em;
+    color: #FFF;
+    margin-top: 1em;
+    padding:0 20px;
+    font-family:'寰蒋闆呴粦',Arial, Helvetica, sans-serif
+}
+section p i{line-height:1.5em}
+section table{font-size:1.5em;font-family:'寰蒋闆呴粦',Arial, Helvetica, sans-serif;margin:20px auto}
+section table td{padding:5px 0}
+.border{margin:2em auto}
+.border a{border:1px solid #fff;border-radius:2px;display:block;width:135px; height:30px; line-height:30px; margin:0 auto}
+.xg-log {
+    width: 30%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: #FFF;
+    color: #000;
+}
+.gz{margin-top:5em}
+a {
+    text-decoration: none;
+}
+.xg-borderbutton {
+    display: block;
+    border: solid 0.1em #FFF;
+    width: 33%;
+    text-align: center;
+    margin: auto;
+    padding: 1em 1.5em;
+    margin-bottom: 5em;
+}
+.xg-aboutfooter {
+    position: absolute;
+    bottom: 2em;
+    width: 100%;
+}
+.xg-aboutfooter p {
+    display: block;
+    font-size: 1em;
+    text-align: center;
+}
+.xg-dots {
+    position: absolute;
+    left: 1em;
+    bottom: 10em;
+}
+.xg-dots .dots {
+    margin-top: 0.5em;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.xg-dots .dots li {
+    border-radius: 0.4em;
+    cursor: pointer;
+    display: inline-block;
+    height: 0.8em;
+    width: 0.8em;
+    margin: 0 0.2em;
+    opacity: 0.3;
+    text-indent: -999em;
+    transition: background 0.5s ease 0s, opacity 0.7s ease 0s;
+    background: none repeat scroll 0 0 rgb(209, 209, 209);
+}
+.xg-dots .dots li.active {
+    background: none repeat scroll 0 0 #fff;
+    opacity: 0.6;
+}
+.xg-btn-home {
+    font-size: 1.2em;
+}
+.xg-arrow-box {
+    width: 100%;
+    position: absolute;
+    bottom: 1em;
+}
+.xg-arrow-circle {
+    margin:0 auto;
+    width: 4.4em;
+    height: 4.4em;
+    background-color: rgba(127, 127, 127, 0.5);
+    border-radius: 2.2em;
+    position: relative;
+
+}
+@-webkit-keyframes ani-arrow {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate(0, 1em) rotate(-45deg);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: translate(0, -0.5em) rotate(-45deg);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(0, -1.5em) rotate(-45deg);
+    }
+}
+@keyframes ani-arrow {
+    0% {
+        opacity: 0;
+        transform: translate(0, 1em) rotate(-45deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(0, -0.5em) rotate(-45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, -1.5em) rotate(-45deg);
+    }
+}
+.sec0 .icon-arrow-up {
+    position: absolute;
+    display: block;
+    vertical-align: bottom;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-right: 0.2em solid #111111;
+    border-top: 0.2em solid #111111;
+    bottom: 1em;
+    left: 1.6em;
+    height: 1em;
+    width: 1em;
+    -webkit-animation: 1.5s ease-in-out 0s normal none infinite ani-arrow;
+    animation: 1.5s ease-in-out 0s normal none infinite ani-arrow;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+@media screen and(max-height:480px){
+    section h2{padding-top:1em}
+    section table{margin:10px auto}
+    section table td{padding:0 0}
+    .gz{margin-top:2em}
+}

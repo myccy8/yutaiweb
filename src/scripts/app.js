@@ -9,6 +9,7 @@ var Delicacy=require('./components/delicacy/index.react');
 var Articles=require('./components/articles/index.react');
 var Music=require('./components/concert/index');
 var MusicDetail=require('./components/concert/detail');
+var AboutUs=require('./components/aboutus/index');
 var Map=require('./components/concert/map');
 if (window.getComputedStyle) {
     var Home = require('./components/home/home.react');
@@ -34,6 +35,7 @@ if (window.getComputedStyle) {
             <Route name="musicDetail" path="/music/:id" handler={MusicDetail}/>
             <Route name="map" path="/map/:id" handler={Map}/>
             <Route name="articles" path="/articles/:categoryItemName/:id" handler={Articles}/>
+            <Route name="aboutus" path="/aboutus" handler={AboutUs}/>
         </Route>
     );
     if (!window.applicationCache) {

@@ -39,8 +39,8 @@ var Articles=React.createClass({
         Action.getArtcles(categoryItemName,id, index);
     },
     changeState() {
-        var id = this.context.router.getCurrentParams().id;
-        var articles = Store.getArticles(id, pageIndex);
+        var categoryItemName = this.context.router.getCurrentParams().categoryItemName;
+        var articles = Store.getArticles(categoryItemName, pageIndex);
         this.setState({
             data: this.state.data.concat(articles.list),
             totalPage: articles.totalPage,

@@ -17,15 +17,15 @@ var Footer=React.createClass({
        return(<footer>
            <div className="table-cell">
                <p className="pl"><Link to="delicacy"><img src={msgl} height="27" style={{marginTop:'3px',align:'middle'}} /><br/>美食攻略</Link></p>
-               <p className="pl"><a href="/wechat/article/index/tag/%E6%97%85%E6%B8%B8%E5%BA%A6%E5%81%87"><img src={lydj} height="23" style={{marginTop:'7px',align:'middle'}} /><br/>旅游度假</a></p>
+               <p className="pl"><Link to="articles"  params={{'id':1,categoryItemName:'旅游度假'}}><img src={lydj} height="23" style={{marginTop:'7px',align:'middle'}} /><br/>旅游度假</Link></p>
            </div>
            <div  className="table-cell">
                <p className="pm"><Link to="music"><img src={zlyc} height="20"style={{marginTop:'10px',align:'middle'}}/><br/>展览演出</Link></p>
                <p className="pm"><a href="/cafe-app"><img src={xzkf}  height="23" style={{marginTop:'7px',align:'middle'}} /><br/>小资咖啡</a></p>
            </div>
            <div  className="table-cell">
-               <p className="pr"><a href="/wechat/article/index/tag/%E4%BC%91%E9%97%B2%E5%A8%B1%E4%B9%90"><img src={xxyl}  height="21"style={{marginTop:'9px',align:'middle'}} /><br/>休闲娱乐</a></p>
-               <p className="pr"><a href="/wechat/about"><img src={gywm} height="19"style={{marginTop:'11px',align:'middle'}} /><br/>关于我们</a></p>
+               <p className="pr"><Link to="articles"  params={{'id':1,categoryItemName:'休闲娱乐'}}><img src={xxyl}  height="21"style={{marginTop:'9px',align:'middle'}} /><br/>休闲娱乐</Link></p>
+               <p className="pr"><Link to="aboutus"><img src={gywm} height="19"style={{marginTop:'11px',align:'middle'}} /><br/>关于我们</Link></p>
            </div>
        </footer>);
     }

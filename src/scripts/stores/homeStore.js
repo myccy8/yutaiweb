@@ -25,11 +25,11 @@ var HomeStore = assign({}, EventEmitter.prototype, {
     getMusic(id){
         return music[id];
     },
-    getArticles(id,index){
+    getArticles(name,index){
         return {
-            totalPage: articles[id].totalPage,
-            list: articles[id][index],
-            articlesTop:articlesTop[id]
+            totalPage: articles[name].totalPage,
+            list: articles[name][index],
+            articlesTop:articlesTop[name]
         };
     },
     getCategoryItems(){
@@ -98,26 +98,26 @@ function getSingleMusic(id){
     }
 }
 function getArticles(categoryItemName,id,index,callback){
-    if (!articles[id] || !articles[id][index]) {
+    if (!articles[categoryItemName] || !articles[categoryItemName][index]) {
         Service.request('api/home/getarticles', 'POST', {id:id,categoryItemName:categoryItemName,index:index,size:5}, function (data) {
             var result = data.articles;
-            articlesTop[id]={
-                title:data.title,
+            articlesTop[categoryItemName]={
+                title:data.secondTitle,
                 indexImage:data.indexImage,
                 content:data.content,
                 categoryImage:data.categoryImage,
                 categoryName:data.categoryName
             };
-            if (!articles[id]) {
-                articles[id] = {};
+            if (!articles[categoryItemName]) {
+                articles[categoryItemName] = {};
             }
             if (data.total !== null) {
-                articles[id].totalPage = Math.ceil(parseInt(data.total) / 5);
+                articles[categoryItemName].totalPage = Math.ceil(parseInt(data.total) / 5);
             }
-            articles[id][index] = result;
+            articles[categoryItemName][index] = result;
             callback();
         });
-    } else if (articles[id][index]) {
+    } else if (articles[categoryItemName][index]) {
         callback();
     }
 }
