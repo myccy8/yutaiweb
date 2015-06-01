@@ -24,7 +24,7 @@ var Home=React.createClass({
         style.unuse();
     },
     componentDidMount(){
-        HomeAction.getCategoryItems('美食攻略');
+        HomeAction.getCategoryItems('人气美食');
     },
     changeState(){
         var articles=HomeStore.getCategoryItems()||[],temp=[];
