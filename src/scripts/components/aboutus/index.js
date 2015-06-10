@@ -143,66 +143,62 @@ var About=React.createClass({
         <div className="xg-log"></div>
         <div id="xg-about" className="keep" style={{webkitTransform: 'translate3d(0px, 0px, 0px)',transform: 'translate3d(0px, 0px, 0px)'}}>
         <section className="sec0" >
-            <h2>Hi,大家好<br/>
-                我是 上海小资美食</h2>
-                <p style={{lineHeight:'1.5em',paddingBottom:'20px'}}>这里有10万跟你一样喜欢上海<br/>小资生活的人关注着我</p>
-                <p>小资有能力做喜欢的事</p>
-                <p><i>因为我们经济独立</i></p>
-                <p>小资有自己的生活品味</p>
-                <p><i>因为我们比谁都热爱生活</i></p>
+            <h2>Hi,大家好<br/></h2>
+            <p><i>这里是 魔都上海</i></p>
+                <p><i>很高兴在这里与大家见面</i></p>
                 <p>小资也具备艺术鉴赏力</p>
-                <p><i>因为文艺青年是我们的标签</i></p>
+                <p><i>这里有跟你一样喜欢魔都上海的人关注着我们</i></p>
                 <div className="xg-arrow-box">
                     <div className="xg-arrow-circle"><i className="icon-arrow-up"></i></div>
                 </div>
             </section>
 
             <section className="sec1">
-                <h2>致力于发现与分享上海最小资吃喝玩乐是我最大的工作</h2>
-                <p style={{lineHeight:'1.5em',paddingBottom:'20px'}}>为小资的粉丝们<br/>探店、写稿、上图、送福利、办活动</p>
+                <h2>魔都上海</h2>
 
             <table align="center" width="85%">
                 <tr>
-                    <td width="50" valign="top">美食：</td>
-                    <td align="left"><i>涵盖全上海最大范围、最新鲜热辣、最全面的美食资讯</i></td>
+                    <td align="left"><i>魔都领先的生活资讯类自媒体大号</i></td>
                 </tr>
                 <tr>
-                    <td  valign="top">甜品：</td>
-                    <td align="left"><i>寻找魔都最嗲的甜品、下午茶，找我就对了</i></td>
+                    <td align="left"><i>致力于发现和分享魔都最In的吃喝玩乐、新闻资讯等</i></td>
                 </tr>
                 <tr>
-                    <td  valign="top">活动：</td>
-                    <td align="left"><i>第一手信息，抢玩沪上最新、最in趣味活动</i></td>
+                    <td align="left"><i>全心全意为魔都上海的粉丝们</i></td>
                 </tr>
                 <tr>
-                    <td  valign="top">周边：</td>
-                    <td align="left"><i>近郊游、户外体验何去何从？我来告诉你</i></td>
-                </tr>
-                <tr>
-                    <td  valign="top">其他：</td>
-                    <td align="left"><i>更多精彩活动，只为丰富你的小资生活</i></td>
+                    <td align="left"><i>送上第一手新闻资讯、城中故事、美食探店、写稿、办活动、送福利</i></td>
                 </tr>
             </table>
         </section>
 
-        <section className="sec2" style={{height: '756px',padding:'0 15px'}}>
-        <h2>上海小资美食是一个新的聚点</h2>
-        <p style={{lineHeight:'1.5em',paddingBottom:'30px'}}>随时随地在这里发现，魔都最IN餐厅美食、酒吧、酒店、甜品、电影、演出、夜生活</p>
-        <p>商务合作<br/>QQ:2871364022/2319975300</p>
-        </section>
-
-        <section className="sec3" style={{height: '756px',padding:'0 15px'}}>
-            <h2>建立一个小资美食的社群</h2>
-            <p style={{lineHeight:'1.5em',paddingBottom:'30px'}}>你可能成不了艺术家，但你可以做一名最有品位的吃货。</p>
-            <p>加入我们<br/>jobs@shanghaiwow.com</p>
-        </section>
-
-        <section className="sec4" style={{height: '756px',padding:'0 15px'}}>
-        <h2>如果你也喜欢探索生活中那些小资情调的事物，或是发现有小资品质的商户和内容，还请记得关注我、推荐给我噢~</h2>
-        <p style={{fontSize:'1.5em'}}>当然,好东西要记得分享给好盆友~</p>
-            <p className="gz">关注微信：上海小资美食</p>
-            <p><a >微信号：xiaozimeishi</a></p>
-            <p><a ><img src="/files/images/about/qrcode.png?r=20140926" style={{background:'#fff'}} width="70" /></a></p>
+        <section className="sec2" style={{height: '756px',padding:'1px 15px'}}>
+            <table align="center" width="95%" style={{margin: '90px auto'}}>
+                <tr>
+                    <td align="left"><i>如果你也喜欢探索生活中那些充满情调的事物</i></td>
+                </tr>
+                <tr>
+                    <td align="left"><i>如果你也想成为一名全方面、有品位的吃货</i></td>
+                </tr>
+                <tr>
+                    <td align="left"><i>如果你也擅长发现一些有品质的商户和内容</i></td>
+                </tr>
+                <tr>
+                    <td align="left"><i>那么，请记得一定要告诉我、推荐给我哟</i></td>
+                </tr>
+                        <tr>
+                            <td align="left"><i>因为，魔都上海也是你们每一位最忠实的粉丝！</i></td>
+                        </tr>
+                        <tr>
+                            <td align="left"><i>投稿合作</i></td>
+                        </tr>
+                        <tr>
+                            <td align="left"><i>QQ：616615025</i></td>
+                        </tr>
+                        <tr>
+                            <td align="left"><i>微信：liuwenju88</i></td>
+                        </tr>
+            </table>
             <p style={{marginTop:'30px'}}><a className="border" style={{border:'1px solid #fff',borderRadius:'2px',padding:'5px 12px'}} onClick={()=>this.context.router.transitionTo('/')}>返回首页</a></p>
         </section>
         </div>
@@ -211,8 +207,6 @@ var About=React.createClass({
                 <li className="dot active">0</li>
                 <li className="dot">1</li>
                 <li className="dot">2</li>
-                <li className="dot">3</li>
-                <li className="dot">4</li>
             </ol>
         </div>
             </div>);

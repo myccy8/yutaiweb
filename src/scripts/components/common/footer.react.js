@@ -10,7 +10,7 @@ var Footer=React.createClass({
     render(){
         return(<footer>
             <p><Link to="/">返回首页</Link></p>
-            <p>Copyright &copy; 2014 xiaozimeishi.com</p>
+            <p>Copyright &copy; 2014 modush.com</p>
         </footer>);
     }
 });
